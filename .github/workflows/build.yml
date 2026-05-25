@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
@@ -33,7 +33,7 @@ jobs:
         run: make -j$(nproc) || make -j1 V=s
 
       - name: Upload firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: n60pro-firmware
           path: bin/targets/mediatek/filogic/*sysupgrade*
