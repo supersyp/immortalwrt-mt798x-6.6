@@ -30,6 +30,7 @@ jobs:
             ${{ runner.os }}-toolchain-
       - name: Update feeds
         run: |
+          echo "src-git nikki https://github.com/nikki-proxy/nikki.git;main" >> feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
