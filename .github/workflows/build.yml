@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-toolchain-
       - name: Update feeds
         run: |
-          echo "src-git nikki https://github.com/nikki-proxy/nikki.git;main" >> feeds.conf.default
+          sed -i 's|src-git packages https://git.openwrt.org/feed/packages.git|src-git packages https://github.com/immortalwrt/packages.git;openwrt-24.10|' feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
