@@ -36,9 +36,7 @@ jobs:
       
       - name: Add nikki package
         run: |
-          git clone --depth=1 https://github.com/nikki-proxy/nikki package/nikki-proxy
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
+          git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki-proxy
           ./scripts/feeds install -f nikki luci-app-nikki luci-i18n-nikki-zh-cn
 
       - name: Copy config
