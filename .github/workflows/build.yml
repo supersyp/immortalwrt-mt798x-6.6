@@ -1,5 +1,9 @@
 name: Build N60Pro Firmware
 
+
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
 
@@ -54,3 +58,12 @@ jobs:
           name: n60pro-firmware
           path: bin/targets/mediatek/filogic/*sysupgrade*
           retention-days: 7
+
+      - name: Upload to Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          artifacts: "bin/targets/mediatek/filogic/*"
+          allowUpdates: true
+          replacesArtifacts: true
+          
